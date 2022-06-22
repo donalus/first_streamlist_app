@@ -2,6 +2,7 @@ import streamlit
 import pandas as pd
 import requests
 import snowflake.connector
+from urllib.error import URLError
 
 streamlit.header('Breakfast Menu')
 streamlit.text('🥣Omega 3 & Blueberry Oatmeal')
@@ -41,4 +42,7 @@ my_data_row = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_row)
 add_my_fruit = streamlit.text_input("What fruit would you like to add?", 'jackfruit')
+
+# Don't run anything past this while we figure it out.
+streamlit.stop()
 streamlit.text(f"Thanks for adding {add_my_fruit}")
