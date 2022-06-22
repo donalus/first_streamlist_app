@@ -1,5 +1,6 @@
 import streamlit
 import pandas as pd
+import requests
 
 streamlit.header('Breakfast Menu')
 streamlit.text('🥣Omega 3 & Blueberry Oatmeal')
@@ -20,3 +21,8 @@ if len(fruits_selected) > 0:
 
 # Display the table on the page.
 streamlit.dataframe(fruits_to_show)
+
+
+# Fruityvice API call
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response)
